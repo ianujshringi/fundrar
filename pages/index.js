@@ -5,11 +5,6 @@ import { useState } from "react";
 import CampaignCard from "../components/CampaignCard";
 
 export default function Home({ data }) {
-  const styles = {
-    category:
-      "cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group",
-    svg: "mr-1 w-5 h-5",
-  };
   const [category, setCategory] = useState("All");
   return (
     <div className="container overflow-x-hidden">
@@ -23,12 +18,12 @@ export default function Home({ data }) {
             <div className="pr-4">
               <a
                 onClick={() => setCategory("All")}
-                className={`${styles.category} ${
+                className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "All" ? "text-violet-500" : ""
                 }`}
               >
                 <svg
-                  className={`${styles.svg} ${
+                  className={`mr-1 w-5 h-5 ${
                     category == "All" ? "text-violet-500" : ""
                   }`}
                   fill="currentColor"
@@ -43,14 +38,14 @@ export default function Home({ data }) {
             <div className="pr-2">
               <a
                 onClick={() => setCategory("Health")}
-                className={`${styles.category} ${
-                  category == "Health" ? "text-purple-500" : ""
+                className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
+                  category == "Health" ? "text-violet-500" : ""
                 }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`${styles.svg} ${
-                    category == "Health" ? "text-purple-500" : ""
+                  className={`mr-1 w-5 h-5 ${
+                    category == "Health" ? "text-violet-500" : ""
                   }`}
                   fill="none"
                   viewBox="0 0 24 24"
@@ -69,13 +64,13 @@ export default function Home({ data }) {
             <div className="pr-2">
               <a
                 onClick={() => setCategory("Education")}
-                className={`${styles.category} ${
+                className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "Education" ? "text-purple-500" : ""
                 }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`${styles.svg} ${
+                  className={`mr-1 w-5 h-5 ${
                     category == "Education" ? "text-purple-500" : ""
                   }`}
                   fill="none"
@@ -97,13 +92,13 @@ export default function Home({ data }) {
             <div className="pr-2">
               <a
                 onClick={() => setCategory("Technology")}
-                className={`${styles.category} ${
+                className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "Technology" ? "text-purple-500" : ""
                 }`}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`${styles.svg} ${
+                  className={`mr-1 w-5 h-5 ${
                     category == "Technology" ? "text-purple-500" : ""
                   }`}
                   viewBox="0 0 24 24"
