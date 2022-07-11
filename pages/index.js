@@ -7,7 +7,7 @@ import CampaignCard from "../components/CampaignCard";
 export default function Home({ data }) {
   const [category, setCategory] = useState("All");
   return (
-    <div className="container overflow-x-hidden">
+    <div>
       <Head>
         <title>FUNDRAR</title>
         <link rel="icon" href="/favicon.ico" />
@@ -16,7 +16,7 @@ export default function Home({ data }) {
         <div className="border-b border-gray-200 dark:border-gray-700">
           <div className="flex flex-wrap -mb-px text-sm font-medium text-center text-gray-500 dark:text-gray-400">
             <div className="pr-4">
-              <a
+              <div
                 onClick={() => setCategory("All")}
                 className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "All" ? "text-violet-500" : ""
@@ -26,17 +26,19 @@ export default function Home({ data }) {
                   className={`mr-1 w-5 h-5 ${
                     category == "All" ? "text-violet-500" : ""
                   }`}
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
                 </svg>
                 All
-              </a>
+              </div>
             </div>
             <div className="pr-2">
-              <a
+              <div
                 onClick={() => setCategory("Health")}
                 className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "Health" ? "text-violet-500" : ""
@@ -59,10 +61,10 @@ export default function Home({ data }) {
                   />
                 </svg>
                 Health
-              </a>
+              </div>
             </div>
             <div className="pr-2">
-              <a
+              <div
                 onClick={() => setCategory("Education")}
                 className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "Education" ? "text-purple-500" : ""
@@ -87,10 +89,10 @@ export default function Home({ data }) {
                   />
                 </svg>
                 Education
-              </a>
+              </div>
             </div>
             <div className="pr-2">
-              <a
+              <div
                 onClick={() => setCategory("Technology")}
                 className={`cursor-pointer inline-flex p-4 rounded-t-lg border-b-2 border-transparent hover:text-purple-500 hover:border-purple-300 group ${
                   category == "Technology" ? "text-purple-500" : ""
@@ -113,20 +115,24 @@ export default function Home({ data }) {
                   />
                 </svg>
                 Technology
-              </a>
+              </div>
             </div>
           </div>
         </div>
-        <div className=" p-10 grid justify-items-center md:grid-cols-3 lg:grid-cols-4 gap-6 w-full box-border">
-          {(category == "All"
-            ? data
-            : data.filter((t) => t.category == category)
-          ).map((e) => (
-            <div key={e.campaignAddress} className="w-10/12 md:w-full">
-              <CampaignCard e={e} key={e.timestamp} />
-            </div>
-          ))}
-        </div>
+        {data.length > 0 ? (
+          <div className=" p-10 grid justify-items-center md:grid-cols-3 lg:grid-cols-4 gap-6 w-full box-border">
+            {(category == "All"
+              ? data
+              : data.filter((t) => t.category == category)
+            ).map((e) => (
+              <div key={e.campaignAddress} className="w-10/12 md:w-full">
+                <CampaignCard e={e} key={e.timestamp} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </main>
     </div>
   );
