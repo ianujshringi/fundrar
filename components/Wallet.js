@@ -22,7 +22,9 @@ function Wallet() {
       handler.setConnected(false);
       setAddress("");
     };
-    window.ethereum.on("accountsChanged", reset);
+
+    if (typeof window.ethereum !== "undefined")
+      window.ethereum.on("accountsChanged", reset);
   }, []);
 
   const handler = UseWalletContext();
